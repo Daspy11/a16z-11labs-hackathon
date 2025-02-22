@@ -1,0 +1,148 @@
+Please review the following PR and provide a conscise summary of the changes and changes required.
+
+<input>
+{
+    "pr_title": "feat(agent): Integrate Eleven Labs conversational agent",
+    "pr_description": "This PR integrates the Eleven Labs API for enhanced conversational capabilities in our agent system. Changes include:\n\n- Add Eleven Labs client configuration and API wrapper\n- Implement voice generation service\n- Add conversation history management\n- Create new agent dialog handlers\n- Add configuration for voice customization\n- Include unit tests for new components",
+    "author": "charlie.brown",
+    "repository": "espresso_core/agent",
+    "changes": [
+        {
+            "file": "src/services/eleven_labs/client.py",
+            "type": "new",
+            "content": """import requests
+from typing import Optional
+from ...config import settings
+
+class ElevenLabsClient:
+    def __init__(self, api_key: Optional[str] = None):
+        self.api_key = api_key or settings.ELEVEN_LABS_API_KEY
+        self.base_url = 'https://api.elevenlabs.io/v1'
+        self.headers = {
+            'xi-api-key': self.api_key,
+            'Content-Type': 'application/json'
+        }
+
+    async def generate_speech(self, text: str, voice_id: str) -> bytes:
+        \"\"\"Generate speech from text using specified voice.\"\"\"
+        url = f'{self.base_url}/text-to-speech/{voice_id}'
+        
+        response = requests.post(
+            url,
+            headers=self.headers,
+            json={'text': text, 'model_id': 'eleven_monolingual_v1'}
+        )
+        
+        response.raise_for_status()
+        return response.content
+
+    async def get_voices(self) -> list:
+        \"\"\"Retrieve available voices.\"\"\"
+        response = requests.get(
+            f'{self.base_url}/voices',
+            headers=self.headers
+        )
+        response.raise_for_status()
+        return response.json()['voices']"""
+        },
+        {
+            "file": "src/agent/conversation_manager.py",
+            "type": "new",
+            "content": """from typing import List, Dict
+from datetime import datetime
+from .models import Conversation, Message
+from ..services.eleven_labs.client import ElevenLabsClient
+
+class ConversationManager:
+    def __init__(self):
+        self.eleven_labs = ElevenLabsClient()
+        self.conversations: Dict[str, Conversation] = {}
+
+    async def create_conversation(self, conversation_id: str) -> Conversation:
+        \"\"\"Initialize a new conversation.\"\"\"
+        conversation = Conversation(
+            id=conversation_id,
+            messages=[],
+            created_at=datetime.utcnow()
+        )
+        self.conversations[conversation_id] = conversation
+        return conversation
+
+    async def add_message(self, conversation_id: str, text: str, role: str) -> Message:
+        \"\"\"Add a message to the conversation and generate speech if needed.\"\"\"
+        conversation = self.conversations.get(conversation_id)
+        if not conversation:
+            conversation = await self.create_conversation(conversation_id)
+
+        message = Message(
+            text=text,
+            role=role,
+            timestamp=datetime.utcnow()
+        )
+        
+        if role == 'agent':
+            # Generate speech for agent responses
+            voice_id = 'default_voice_id'  # Configure as needed
+            message.audio = await self.eleven_labs.generate_speech(text, voice_id)
+        
+        conversation.messages.append(message)
+        return message"""
+        },
+        {
+            "file": "src/agent/models.py",
+            "type": "modified",
+            "content": """from dataclasses import dataclass
+from datetime import datetime
+from typing import List, Optional
+
+@dataclass
+class Message:
+    text: str
+    role: str
+    timestamp: datetime
+    audio: Optional[bytes] = None
+
+@dataclass
+class Conversation:
+    id: str
+    messages: List[Message]
+    created_at: datetime"""
+        },
+        {
+            "file": "tests/services/test_eleven_labs.py",
+            "type": "new",
+            "content": """import pytest
+from unittest.mock import patch, MagicMock
+from src.services.eleven_labs.client import ElevenLabsClient
+
+@pytest.fixture
+def client():
+    return ElevenLabsClient(api_key='test_key')
+
+@pytest.mark.asyncio
+async def test_generate_speech(client):
+    with patch('requests.post') as mock_post:
+        mock_response = MagicMock()
+        mock_response.content = b'audio_data'
+        mock_post.return_value = mock_response
+        
+        result = await client.generate_speech('Hello', 'voice_id')
+        
+        assert result == b'audio_data'
+        mock_post.assert_called_once()
+
+@pytest.mark.asyncio
+async def test_get_voices(client):
+    with patch('requests.get') as mock_get:
+        mock_response = MagicMock()
+        mock_response.json.return_value = {'voices': [{'id': 'voice1'}]}
+        mock_get.return_value = mock_response
+        
+        result = await client.get_voices()
+        
+        assert result == [{'id': 'voice1'}]
+        mock_get.assert_called_once()"""
+        }
+    ]
+}
+<input>
