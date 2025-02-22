@@ -58,6 +58,7 @@ if [ "$ENVIRONMENT" = "venv" ]; then
 
     export ENV_FILE
     pip install --no-cache-dir -r requirements.txt
+    python reset_db.py
     eval "$SERVER_CMD"
 else
     if [ "$SERVER_TYPE" = "prod" ]; then
