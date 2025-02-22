@@ -34,15 +34,15 @@ def get_availability():
     try:
         # Get parameters from URL
         date = request.args.get('date')
-        duration_minutes = request.args.get('duration_minutes', type=int)
+        duration = request.args.get('duration', type=int)
         users = request.args.getlist('users')  # Handles multiple user parameters
 
         # Validate required inputs
         missing_params = []
         if not date:
             missing_params.append("date")
-        if not duration_minutes:
-            missing_params.append("duration_minutes")
+        if not duration:
+            missing_params.append("duration")
         if not users:
             missing_params.append("users")
             
@@ -54,7 +54,7 @@ def get_availability():
         # Parse inputs
         try:
             target_date = datetime.fromisoformat(date)
-            duration = timedelta(minutes=duration_minutes)
+            duration = timedelta(minutes=duration)
         except ValueError:
             return jsonify({
                 "message": "Invalid date format. Please use ISO format (YYYY-MM-DD)"
