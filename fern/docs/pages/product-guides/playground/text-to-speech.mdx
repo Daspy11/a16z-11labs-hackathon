@@ -1,0 +1,151 @@
+---
+title: Text to Speech
+headline: Text to Speech (product guide)
+subtitle: A guide on how to turn text to speech with ElevenLabs
+---
+
+<img
+  src="/assets/images/product-guides/text-to-speech/text-to-speech-product-feature.png"
+  alt="Text to Speech product feature"
+  className="w-full rounded-lg"
+/>
+
+## Overview
+
+ElevenLabs' Text to Speech technology is integral to our offerings, powering high-quality AI-generated speech across various applications worldwide. It's likely you've already encountered our voices in action, delivering lifelike audio experiences.
+
+## Guide
+
+<Frame background="subtle">
+  ![Text to Speech demo](/assets/images/product-guides/text-to-speech/text-to-speech-demo.png)
+</Frame>
+
+<Steps>
+<Step title="Text input">
+  Type or paste your text into the input box on the Text to Speech page.
+</Step>
+<Step title="Voice selection">
+  Select the voice you wish to use from your Voices at the bottom left of the screen.
+</Step>
+<Step title="Adjust settings (optional)">Modify the voice settings for the desired output.</Step>
+
+<Step title="Generate">Click the 'Generate' button to create your audio file.</Step>
+
+</Steps>
+
+## Settings
+
+Get familiar with the voices, models & settings for creating high-quality speech.
+
+<AccordionGroup>
+<Accordion title="Voices">
+
+### Voices
+
+<Frame background="subtle">
+  ![Text to Speech voice
+  selection](/assets/images/product-guides/text-to-speech/text-to-speech-voices.png)
+</Frame>
+
+We offer many types of voices, including the curated Default Voices library; completely synthetic voices created using our Voice Design tool; you can create your own collection of cloned voices using our two technologies: Instant Voice Cloning and Professional Voice Cloning. Browse through our voice library to find the perfect voice for your production.
+
+Not all voices are equal, and a lot depends on the source audio used to create that voice. Some voices will perform better than others, while some will be more stable than others. Additionally, certain voices will be more easily cloned by the AI than others, and some voices may work better with one model and one language compared to another. All of these factors are important to consider when selecting your voice.
+
+[Learn more about voices](/docs/capabilities/voices)
+
+</Accordion>
+
+<Accordion title="Models">
+
+### Models
+
+<Frame background="subtle">
+  ![Text to Speech model
+  selection](/assets/images/product-guides/text-to-speech/text-to-speech-models.png)
+</Frame>
+
+ElevenLabs offers two families of models: standard (high-quality) models and Flash models, which are optimized for low latency. Each family includes both English-only and multilingual models, tailored for specific use cases with strengths in either speed, accuracy, or language diversity.
+
+<Markdown src="/snippets/models.mdx" />
+
+[Learn more about our models](/docs/models)
+
+</Accordion>
+
+<Accordion title="Voice settings">
+### Voice settings
+
+<Frame background="subtle">
+  ![Text to Speech voice
+  settings](/assets/images/product-guides/text-to-speech/text-to-speech-settings.png)
+</Frame>
+
+Our users have found different workflows that work for them. The most common setting is stability around 50 and similarity near 75, with minimal changes thereafter. Of course, this all depends on the original voice and the style of performance you're aiming for.
+
+It's important to note that the AI is non-deterministic; setting the sliders to specific values won't guarantee the same results every time. Instead, the sliders function more as a range, determining how wide the randomization can be between each generation.
+
+#### Stability
+
+The stability slider determines how stable the voice is and the randomness between each generation. Lowering this slider introduces a broader emotional range for the voice. As mentioned before, this is also influenced heavily by the original voice. Setting the slider too low may result in odd performances that are overly random and cause the character to speak too quickly. On the other hand, setting it too high can lead to a monotonous voice with limited emotion.
+
+For a more lively and dramatic performance, it is recommended to set the stability slider lower and generate a few times until you find a performance you like.
+
+On the other hand, if you want a more serious performance, even bordering on monotone at very high values, it is recommended to set the stability slider higher. Since it is more consistent and stable, you usually don't need to generate as many samples to achieve the desired result. Experiment to find what works best for you!
+
+#### Similarity
+
+The similarity slider dictates how closely the AI should adhere to the original voice when attempting to replicate it. If the original audio is of poor quality and the similarity slider is set too high, the AI may reproduce artifacts or background noise when trying to mimic the voice if those were present in the original recording.
+
+#### Style exaggeration
+
+With the introduction of the newer models, we also added a style exaggeration setting. This setting attempts to amplify the style of the original speaker. It does consume additional computational resources and might increase latency if set to anything other than 0. It's important to note that using this setting has shown to make the model slightly less stable, as it strives to emphasize and imitate the style of the original voice.
+
+In general, we recommend keeping this setting at 0 at all times.
+
+#### Speaker Boost
+
+This setting boosts the similarity to the original speaker. However, using this setting requires a slightly higher computational load, which in turn increases latency. The differences introduced by this setting are generally rather subtle.
+
+</Accordion>
+
+</AccordionGroup>
+
+## FAQ
+
+<AccordionGroup>
+    <Accordion title="Good input equals good output">
+        The first factor, and one of the most important, is that good, high-quality, and consistent input will result in good, high-quality, and consistent output.
+
+        If you provide the AI with audio that is less than ideal—for example, audio with a lot of noise, reverb on clear speech, multiple speakers, or inconsistency in volume or performance and delivery—the AI will become more unstable, and the output will be more unpredictable.
+
+        If you plan on cloning your own voice, we strongly recommend that you go through our guidelines in the documentation for creating proper voice clones, as this will provide you with the best possible foundation to start from. Even if you intend to use only Instant Voice Clones, it is advisable to read the Professional Voice Cloning section as well. This section contains valuable information about creating voice clones, even though the requirements for these two technologies are slightly different.
+
+    </Accordion>
+
+    <Accordion title="Use the right voice">
+        The second factor to consider is that the voice you select will have a tremendous effect on the output. Not only, as mentioned in the first factor, is the quality and consistency of the samples used to create that specific clone extremely important, but also the language and tonality of the voice.
+
+        If you want a voice that sounds happy and cheerful, you should use a voice that has been cloned using happy and cheerful samples. Conversely, if you desire a voice that sounds introspective and brooding, you should select a voice with those characteristics.
+
+        However, it is also crucial to use a voice that has been trained in the correct language. For example, all of the professional voice clones we offer as default voices are English voices and have been trained on English samples. Therefore, if you have them speak other languages, their performance in those languages can be unpredictable. It is essential to use a voice that has been cloned from samples where the voice was speaking the language you want the AI to then speak.
+
+    </Accordion>
+
+    <Accordion title="Use proper formatting">
+        This may seem slightly trivial, but it can make a big difference. The AI tries to understand how to read something based on the context of the text itself, which means not only the words used but also how they are put together, how punctuation is applied, the grammar, and the general formatting of the text.
+
+        This can have a small but impactful influence on the AI's delivery. If you were to misspell a word, the AI won't correct it and will try to read it as written.
+
+    </Accordion>
+
+    <Accordion title="Nondeterministic">
+        The settings of the AI are nondeterministic, meaning that even with the same initial conditions (voice, settings, model), it will give you slightly different output, similar to how a voice actor will deliver a slightly different performance each time.
+
+        This variability can be due to various factors, such as the options mentioned earlier: voice, settings, model. Generally, the breadth of that variability can be controlled by the stability slider. A lower stability setting means a wider range of variability between generations, but it also introduces inter-generational variability, where the AI can be a bit more performative.
+
+        A wider variability can often be desirable, as setting the stability too high can make certain voices sound monotone as it does give the AI the same leeway to generate more variable content. However, setting the stability too low can also introduce other issues where the generations become unstable, especially with certain voices that might have used less-than-ideal audio for the cloning process.
+
+        The default setting of 50 is generally a great starting point for most applications.
+    </Accordion>
+
+</AccordionGroup>

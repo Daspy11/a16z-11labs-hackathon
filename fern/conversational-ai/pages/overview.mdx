@@ -1,0 +1,144 @@
+---
+title: Conversational AI overview
+headline: Introduction - Conversational voice AI agents
+subtitle: Deploy customized, conversational voice agents in minutes.
+---
+
+<div style={{ position: 'relative', width: '100%', paddingBottom: '56.25%' }}>
+  <iframe
+    src="https://player.vimeo.com/video/1029660636"
+    frameBorder="0"
+    style={{ position: 'absolute', top: '0', left: '0', width: '100%', height: '100%' }}
+    className="aspect-video w-full rounded-lg"
+    allow="autoplay; fullscreen; picture-in-picture"
+    allowFullScreen
+  />
+</div>
+
+## What is Conversational AI?
+
+ElevenLabs [Conversational AI](https://elevenlabs.io/conversational-ai) is a platform for deploying customized, conversational voice agents. Built in response to our customers' needs, our platform eliminates months of development time typically spent building conversation stacks from scratch. It combines these building blocks:
+
+<CardGroup cols={2}>
+  <Card title="Language model">
+    Choose from Gemini, Claude, OpenAI and more, or bring your own.
+  </Card>
+  <Card title="Text to speech">
+    Our low latency, human-like TTS across 5k+ voices and 31 languages.
+  </Card>
+  <Card title="Turn taking">
+    Our custom turn taking and interruption detection service that feels human.
+  </Card>
+</CardGroup>
+
+Altogether it is a highly composable AI Voice agent solution that can scale to thousands of calls per day. With [server](/docs/conversational-ai/customization/tools) & [client side](/docs/conversational-ai/customization/client-tools) tools, [knowledge](/docs/conversational-ai/customization/knowledge-base) bases, [dynamic](/docs/conversational-ai/customization/dynamic-variables) agent instantiation and [overrides](/docs/conversational-ai/customization/overrides), plus built-in monitoring, it's the complete developer toolkit.
+
+<Card title="Pricing" horizontal>
+  15 minutes to get started on the free plan. Get 13,750 minutes included on the Business plan at
+  \$0.08 per minute on the Business plan, with extra minutes billed at \$0.08, as well as
+  significantly discounted pricing at higher volumes.
+  <br />
+  **Setup & Prompt Testing**: billed at half the cost.
+</Card>
+
+## Pricing tiers
+
+<Tabs>
+  <Tab title="In Minutes">
+  
+  | Tier     | Price   | Minutes included | Cost per extra minute              |
+  | -------- | ------- | ---------------- | ---------------------------------- |
+  | Free     | \$0     | 15               | Unavailable                        |
+  | Starter  | \$5     | 50               | Unavailable                        |
+  | Creator  | \$22    | 250              | ~\$0.12                            |
+  | Pro      | \$99    | 1100             | ~\$0.11                            |
+  | Scale    | \$330   | 3,600            | ~\$0.10                            |
+  | Business | \$1,320 | 13,750           | \$0.08 (annual), \$0.096 (monthly) |
+
+  </Tab>
+  <Tab title="In Credits">
+  
+  | Tier     | Price   | Credits included | Cost in credits per extra minute |
+  | -------- | ------- | ---------------- | -------------------------------- |
+  | Free     | \$0     | 10,000           | Unavailable                      |
+  | Starter  | \$5     | 30,000           | Unavailable                      |
+  | Creator  | \$22    | 100,000          | 400                              |
+  | Pro      | \$99    | 500,000          | 454                              |
+  | Scale    | \$330   | 2,000,000        | 555                              |
+  | Business | \$1,320 | 11,000,000       | 800                              |
+
+  </Tab>
+</Tabs>
+
+<Note>
+  Today we're covering the LLM costs, though these will be passed through to customers in the
+  future.
+</Note>
+
+## Models
+
+Currently, the following models are natively supported and can be configured via the agent settings:
+
+- Gemini 2.0 Flash
+- Gemini 1.5 Flash
+- Gemini 1.5 Pro
+- Gemini 1.0 Pro
+- GPT-4o Mini
+- GPT-4o
+- GPT-4 Turbo
+- GPT-3.5 Turbo
+- Claude 3.5 Sonnet
+- Claude 3 Haiku
+
+![Supported models](/assets/images/conversational-ai/llms.png)
+
+You can start with our [free tier](https://elevenlabs.io/app/sign-up), which includes 15 minutes of conversation per month.
+
+Need more? Upgrade to a [paid plan](https://elevenlabs.io/pricing) instantly - no sales calls required. For enterprise usage (6+ hours of daily conversation), [contact our sales team](https://elevenlabs.io/contact-sales) for custom pricing tailored to your needs.
+
+## Popular applications
+
+Companies and creators use our Conversational AI orchestration platform to create:
+
+- **Customer service**: Assistants trained on company documentation that can handle customer queries, troubleshoot issues, and provide 24/7 support in multiple languages.
+- **Virtual assistants**: Assistants trained to manage scheduling, set reminders, look up information, and help users stay organized throughout their day.
+- **Retail support**: Assistants that help customers find products, provide personalized recommendations, track orders, and answer product-specific questions.
+- **Personalized learning**: Assistants that help students learn new topics & enhance reading comprehension by speaking with books and [articles](https://elevenlabs.io/blog/time-brings-conversational-ai-to-journalism).
+
+<Note>
+  Ready to get started? Check out our [quickstart guide](/docs/conversational-ai/quickstart) to
+  create your first AI agent in minutes.
+</Note>
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="Concurrency limits">
+Plan limits
+
+Your subscription plan determines how many calls can be made simultaneously.
+
+| Plan       | Concurrency limit |
+| ---------- | ----------------- |
+| Free       | 4                 |
+| Starter    | 6                 |
+| Creator    | 10                |
+| Pro        | 20                |
+| Scale      | 30                |
+| Business   | 30                |
+| Enterprise | Elevated          |
+
+    <Note>
+      To increase your concurrency limit [upgrade your subscription plan](https://elevenlabs.io/pricing)
+      or [contact sales](https://elevenlabs.io/contact-sales) to discuss enterprise plans.
+    </Note>
+
+  </Accordion>
+  <Accordion title="Supported audio formats">
+    The following audio output formats are supported in the Conversational AI platform:
+
+    - PCM (8 kHz / 16 kHz / 22.05 kHz / 24 kHz / 44.1 kHz)
+    - μ-law 8000Hz
+
+  </Accordion>
+</AccordionGroup>

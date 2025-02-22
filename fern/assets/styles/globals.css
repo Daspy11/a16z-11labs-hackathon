@@ -1,0 +1,176 @@
+/* Hide branding */
+.mx-auto.my-8.w-fit {
+  display: none !important;
+}
+
+/* Hide first HR in changelog */
+.fern-changelog > main > section + hr {
+  display: none;
+}
+
+/* Make changelog entries center aligned */
+.fern-changelog > main {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  overflow-wrap: break-word;
+  width: 100%;
+}
+.fern-changelog-entry {
+  justify-content: center !important;
+}
+
+/* Reduce padding on first changelog entry */
+.fern-changelog > main > section.fern-changelog-entry {
+  padding-bottom: 0px;
+}
+
+/* Hide the docs sidebar tab icons container */
+.flex.min-w-0.items-center.justify-start.space-x-4 > .min-w-fit {
+  display: none !important;
+  position: absolute !important;
+  visibility: hidden !important;
+}
+
+.flex.min-w-0.items-center.justify-start.space-x-4 > span {
+  margin-left: 0 !important;
+}
+
+/* Fix the tablist not being scrollable on mobile and hide the native scrollbar */
+[role='tablist'] {
+  position: relative;
+  overflow-x: auto;
+  overflow-y: visible;
+
+  /* Hide native scrollbars */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+[role='tablist']::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, newer Edge */
+}
+[role='tablist'] h6[data-state='active'] {
+  position: relative;
+  z-index: 1;
+  border-bottom: 2px solid currentColor !important;
+}
+
+/*----------------------------------------
+  Wave Animation Block
+----------------------------------------*/
+/* Overview Wave */
+#overview-wave {
+  width: 100vw;
+  overflow: hidden !important;
+  overflow-x: hidden !important;
+  height: 350px;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+#overview-wave canvas[data-engine='three.js r171'] {
+  height: 350px !important;
+}
+
+.light-mode-wave {
+  display: none;
+}
+
+.dark-mode-wave {
+  display: none;
+}
+
+:root[class='light'] .light-mode-wave {
+  display: block;
+}
+
+:root[class='dark'] .dark-mode-wave {
+  display: block;
+}
+
+.fern-sidebar-heading-content {
+  font-size: 0.75rem !important;
+  line-height: 1rem !important;
+}
+
+@media (min-width: 1024px) {
+  elevenlabs-convai {
+    display: block;
+  }
+  .fern-sidebar-heading {
+    min-height: 30px !important;
+  }
+}
+/* Make active sidebar links bolder with transition */
+.fern-sidebar-link-container .fern-sidebar-link-text {
+  font-weight: 400;
+  transition: font-weight 0.15s ease;
+}
+
+/* Active state styling */
+:root[class='light'] .fern-sidebar-link-container[data-state='active'] .fern-sidebar-link-text {
+  font-weight: 500;
+  color: #000000; /* or your preferred light mode active color */
+}
+
+:root[class='dark'] .fern-sidebar-link-container[data-state='active'] .fern-sidebar-link-text {
+  font-weight: 500;
+  color: #ffffff; /* or your preferred dark mode active color */
+}
+
+:root[class='light'] {
+  --wave-color: blue;
+}
+
+:root[class='dark'] {
+  --wave-color: gray;
+}
+
+/* Sidebar, header and header tabs styling */
+.clipped-background {
+  background: none !important;
+  opacity: 0 !important;
+}
+
+.fern-header,
+.fern-header-tabs {
+  background-color: rgba(255, 255, 255, 0) !important;
+}
+
+.fern-sidebar-container,
+.fern-header-container {
+  backdrop-filter: blur(10px);
+}
+
+.fern-header-container {
+  border-bottom-color: rgb(233, 232, 234);
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  box-sizing: border-box;
+}
+
+:root[class='light'] .fern-sidebar-container,
+:root[class='light'] .fern-header-container {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  border-color: #e9e8ea !important;
+}
+
+:root[class='dark'] .fern-sidebar-container,
+:root[class='dark'] .fern-header-container {
+  border-color: #23252a !important;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Remove the bottom border on the header */
+.fern-header {
+  border-bottom: none !important;
+}
+
+/* Fix the logo height */
+.fern-logo-container {
+  height: 30px !important;
+}
+
+/* Bring TOC infront of the wave */
+.fern-layout-toc {
+  z-index: 1 !important;
+}

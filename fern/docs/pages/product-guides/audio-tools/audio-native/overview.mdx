@@ -1,0 +1,133 @@
+---
+title: Audio Native
+headline: Audio Native Overview
+subtitle: Easily embed ElevenLabs on any web page.
+---
+
+<img
+  src="/assets/images/product-guides/audio-native/audio-native-product-feature.png"
+  alt="Audio Native"
+  className="w-full rounded-lg"
+/>
+
+## Overview
+
+Audio Native is an embedded audio player that automatically voices content of a web page using ElevenLab’s [Text to Speech](/docs/product-guides/playground/text-to-speech) service. It can also be used to embed pre-generated content from a project into a web page. All it takes to embed on your site is a small HTML snippet. In addition, Audio Native provides built-in metrics allowing you to precisely track audience engagement via a listener dashboard.
+
+The end result will be a Audio Native player that can narrate the content of a page, or, like in the case below, embed pre-generated content from a project:
+
+<iframe
+  width="100%"
+  height="90"
+  seamless
+  src="https://elevenlabs.io/player/index.html?publicUserId=4d7f6f3d38ae27705f5b516ffd3e413a09baa48667073d385e5be1be773eaf69&projectId=gLj1spzTwuTgKuOtyfnX&small=true&textColor=rgba(0,%200,%200,%201)&backgroundColor=rgba(255,%20255,%20255,%201)"
+></iframe>
+
+## Guide
+
+<Steps>
+  <Step title="Navigate to Audio Native">
+    In the ElevenLabs dashboard, under "Audio Tools" navigate to ["Audio Native"](/app/audio-native).
+  </Step>
+  <Step title="Configure player appearance">
+    Customize the player apperance by selecting background and text colors.
+  </Step>
+  <Step title="Configure allowed sites">
+    The URL allowlist is the list of web pages that will be permitted to play your content.
+
+    You can choose to add a specific web page (e.g. `https://elevenlabs.io/blog`) or add a whole domain to the allowlist (e.g. `http://elevenlabs.io`). If a player is embedded on a page that is not in the allowlist, it will not work as intended.
+
+  </Step>
+  <Step title="Get embed code">
+    Once you've finished configuring the player and allowlist, copy the embed code and paste it into your website's source code.
+  </Step>
+</Steps>
+
+## Technology-specific guides
+
+To integrate Audio Native into your web techology of choice, see the following guides:
+
+<CardGroup cols={4}>
+  <Card
+    title="React"
+    icon="brands react"
+    href="/docs/product-guides/audio-tools/audio-native/react"
+  />
+  <Card
+    title="Ghost"
+    icon="duotone ghost"
+    href="/docs/product-guides/audio-tools/audio-native/ghost"
+  />
+  <Card
+    title="Squarespace"
+    icon="brands squarespace"
+    href="/docs/product-guides/audio-tools/audio-native/squarespace"
+  />
+  <Card
+    title="Framer"
+    icon="duotone browser"
+    href="/docs/product-guides/audio-tools/audio-native/framer"
+  />
+  <Card
+    title="Webflow"
+    icon="brands webflow"
+    href="/docs/product-guides/audio-tools/audio-native/webflow"
+  />
+  <Card
+    title="Wordpress"
+    icon="brands wordpress"
+    href="/docs/product-guides/audio-tools/audio-native/word-press"
+  />
+  <Card title="Wix" icon="brands wix" href="/docs/product-guides/audio-tools/audio-native/wix" />
+</CardGroup>
+
+## Using the API
+
+You can use the [Audio Native API](/docs/api-reference/audio-native/create) to programmatically create an Audio Native player for your existing content.
+
+<CodeBlocks>
+```python title="Python"
+from elevenlabs import ElevenLabs
+
+client = ElevenLabs(
+api_key="YOUR_API_KEY",
+)
+response = client.audio_native.create(
+name="name",
+)
+
+# Use the snippet in response.html_snippet to embed the player on your website
+
+````
+
+```javascript title="JavaScript"
+import { ElevenLabsClient } from "elevenlabs";
+
+const client = new ElevenLabsClient({ apiKey: "YOUR_API_KEY" });
+const { html_snippet } = await client.audioNative.create({
+    name: "my-audio-native-player"
+});
+
+// Use the HTML code in html_snippet to embed the player on your website
+````
+
+</CodeBlocks>
+
+## Settings
+
+<AccordionGroup>
+  <Accordion title="Voice and model">
+    ### Voices
+
+    To configure the voice and model that will be used to read the content of the page, navigate to the "Settings" tab and select the voice and modelyou want to use.
+
+  </Accordion>
+  <Accordion title="Pronunciation dictionaries">
+    ### Pronunciation dictionaries
+
+    Sometimes you may want to specify the pronunciation of certain words, such as character or brand names, or specify how acronyms should be read. Pronunciation dictionaries allow this functionality by enabling you to upload a lexicon or dictionary file that includes rules about how specified words should be pronounced, either using a phonetic alphabet (phoneme tags) or word substitutions (alias tags).
+
+    Whenever one of these words is encountered in a project, the AI will pronounce the word using the specified replacement. When checking for a replacement word in a pronunciation dictionary, the dictionary is checked from start to end and only the first replacement is used.
+
+  </Accordion>
+</AccordionGroup>

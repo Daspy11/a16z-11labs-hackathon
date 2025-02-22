@@ -1,0 +1,90 @@
+---
+title: Voice changer
+headline: Voice changer (product guide)
+subtitle: A guide on how to transform audio between voices while preserving emotion and delivery.
+---
+
+<img
+  src="/assets/images/product-guides/voice-changer/voice-changer-product-feature.png"
+  alt="Voice changer product feature"
+  className="w-full rounded-lg"
+/>
+
+## Overview
+
+Voice changer (previously Speech-to-Speech) allows you to convert one voice (source voice) into another (cloned voice) while preserving the tone and delivery of the original voice.
+
+Voice changer can be used to complement Text-to-Speech (TTS) by fixing pronunciation errors or infusing that special performance you've been wanting to exude. Voice changer is especially useful for emulating those subtle, idiosyncratic characteristics of the voice that give a more emotive and human feel. Some key features include:
+
+- Greater accuracy with whispering
+- The ability to create audible sighs, laughs, or cries
+- Greatly improved detection of tone and emotion
+- Accurately follows the input speaking cadence
+- Language/accent retention
+
+<AccordionGroup>
+  <Accordion title="Watch a video of voice changer in action">
+    <iframe
+      width="100%"
+      height="400"
+      src="https://www.youtube.com/embed/GBdOQClluIA"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+    ></iframe>
+  </Accordion>
+</AccordionGroup>
+
+## Guide
+
+<Frame background="subtle">
+  ![Voice changer demo](/assets/images/product-guides/voice-changer/voice-changer-demo.png)
+</Frame>
+
+Audio can be uploaded either directly with an audio file, or spoken live through a microphone. The audio file must be less than **50mb in size**, and either the audio file or your live recording cannot exceed **5 minutes in length**.
+
+If you have material longer than 5 minutes, we recommend breaking it up into smaller sections and generating them separately. Additionally, if your file size is too large, you may need to compress/convert it to an mp3.
+
+### Existing audio file
+
+To upload an existing audio file, either click the audio box, or drag and drop your audio file directly onto it.
+
+### Record live
+
+Press the **Record Audio** button in the audio box, and then once you are ready to begin recording, press the **Microphone** button to start. After you're finished recording, press the **Stop** button.
+
+You will then see the audio file of this recording, which you can then playback to listen to - this is helpful to determine if you are happy with your performance/recording. The character cost will be displayed on the bottom-left corner, and you will not be charged this quota for recording anything - only when you press "Generate".
+
+**The cost for a voice changer generation is solely duration-based at 1000 characters per minute.**
+
+## Settings
+
+<Frame background="subtle">
+  ![Voice changer settings](/assets/images/product-guides/voice-changer/voice-changer-settings.png)
+</Frame>
+
+Learn more about the different voice settings [here](/docs/product-guides/playground/text-to-speech#settings).
+
+<Info>
+  Voice changer adds an additional setting to automaticaly remove background noise from your
+  recording.
+</Info>
+
+## Support languages
+
+`eleven_english_sts_v2`
+
+<Markdown src="/snippets/v2-model-languages.mdx" />
+
+The `eleven_english_sts_v2` model only supports English.
+
+[Learn more about models](/docs/models)
+
+## Best practices
+
+Voice changer excels at **preserving accents** and **natural speech cadences** across various output voices. For instance, if you upload an audio sample with a Portuguese accent, the output will retain that language and accent. The input sample is crucial, as it determines the output characteristics. If you select a British voice like "George" but record with an American accent, the result will be George's voice with an American accent.
+
+- **Expression**: Be expressive in your recordings. Whether shouting, crying, or laughing, the voice changer will accurately replicate your performance. This tool is designed to enhance AI realism, allowing for creative expression.
+- **Microphone gain**: Ensure the input gain is appropriate. A quiet recording may hinder AI recognition, while a loud one could cause audio clipping.
+- **Background Noise**: Turn on the **Remove Background Noise** option to automatically remove background noise from your recording.

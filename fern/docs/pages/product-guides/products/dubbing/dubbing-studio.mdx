@@ -1,0 +1,57 @@
+---
+title: Dubbing studio
+subtitle: Fine grained control over your dubs.
+---
+
+<iframe
+  width="100%"
+  height="400"
+  src="https://www.youtube.com/embed/DwMcfofG0js"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen
+></iframe>
+
+### Step by step for for using Dubbing Studio:
+
+1. Follow the same steps as you had with Automatic Dubbing, this time checking the **Create a Dubbing Studio project** box.
+2. Click on **Create**.
+3. The system will auto-generate a transcription of the original audio (or for more advanced users, you can manually input the transcription using the Manual upload option during the upload stage).
+4. Review the transcription in the speaker cards and edit if necessary.
+5. If needed, re-assign clips to the appropriate speaker(s) by dragging and dropping the audio clips from the track to the speaker timeline.
+6. Click on the language where you dubbed the video in at the bottom of the screen.
+7. You will see a new set of speaker cards appearing next to your transcription, as well as a new set of audio files that are highlighted in sync with the audio timeline.
+   - (Optional) If you have made any edits to the transcription, you can re-translate the text by clicking the arrow between the two speaker cards.
+   - (Optional) You can assign different voices and/or edit the voice settings for an audio track by clicking the cog icon available next to the speaker's name within the audio track.
+8. Use the timeline to view and adjust the placement of voice clips.
+9. **You can edit clips**:
+   - By dragging the clip edges to speed up or slow down speech within in select mode.
+   - Merge clips by selecting the merge button between clips in the original audio tracks.
+   - Split clips by selecting the split button in the clip panel with the split icon to save time.
+10. You can export the final output in various formats and synchronize any video or audio you wish by selecting "Export".
+11. Preview the dubbed video, export when ready.
+12. This allows video clips to be generated. Choose the video format and size from available options.
+13. Select the dubbed file to be generated.
+
+## Additional Features
+
+    - **Manual Import**: Allows for manual uploading of video, background audio, and speaker audio files, along with CSV files specifying details for each clip.
+    - **Timing Adjustments**: Choose between fixed durations to maintain video timing or dynamic durations for more natural speech flow.
+    - **Voiceover Tracks:** Voiceover tracks create new Speakers. You can click and add clips on the timeline wherever you like. After creating a clip, start writing your desired text on the speaker cards above. You'll first need to translate that text, then you can press "Generate". You can also use our voice changer tool by clicking on the microphone icon on the right side of the screen to use your own voice and then change it into the selected voice.
+    - **SFX Tracks:** Add a SFX track, then click anywhere on that track to create a SFX clip. Similar to our independent SFX feature, simply start writing your prompt in the Speaker card above and click “Generate” to create your new SFX audio. You can lengthen or shorten SFX clips and move them freely around your timeline to fit your project - make sure to press the “stale” button if you do so.
+    - **Upload Audio:** This option allows you to upload a non voiced track such as sfx, music or background track. Please keep in mind that if voices are present in this track, they won't be detected so it will not be possible to translate or correct them.
+
+**Exercise**: Dub the video found [here](https://www.youtube.com/watch?v=WnNFZt0qjD0) using Dubbing Studio from English to Spanish (or a language of your choosing). Select 6 speakers and keep the watermark.
+
+<Frame background="subtle">
+  ![Dubbing project](/assets/images/product-guides/dubbing/dubbing-project.png)
+</Frame>
+
+## "Dynamic" vs. "Fixed" Generation
+
+In Dubbing Studio, all regenerations made to the text are "Fixed" generations by default. This means that no matter how much text is in a Speaker card, that respective clip will not change its length. This is helpful to keep the timing of the video with the speech. However, this can be problematic if there are too many or too few words within the speaker card, as this can result in sped up or slowed down speech.
+
+This is where "Dynamic" generation can help. You can access this by right clicking on a clip and selecting "Generate Audio (Dynamic Duration). You'll notice now that the length of the clip will more appropriately match the text spoken for that section. For example, the phrase **"I'm doing well!"** should only occupy a small clip - if the clip was very long, the speech would be slurred and drawn out. This is where Dynamic generation can be helpful.
+
+Just note, though, that this could affect the syncing and timing of your video. Additionally, if you choose "Dynamic Duration" for a clip that has many words, the clip will need to lengthen - if there is a clip directly in front of it, it will not have enough room to generate properly, so make sure you leave some space between your clips!
