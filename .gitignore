@@ -1,5 +1,5 @@
-node_modules/
-.DS_Store
-.definition
-.preview
-.env
+frontend/node_modules/
+frontend/.DS_Store
+frontend/.definition
+frontend/.preview
+frontend/.env
