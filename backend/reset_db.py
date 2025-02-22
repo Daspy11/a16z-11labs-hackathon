@@ -1,8 +1,12 @@
 import os
+import json
 import shutil
 from app import create_app, db
-from app.models import Slack
+from app.models import Slack, Email, Calendar
 from datetime import datetime
+
+# Get the directory where reset_db.py is located
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 def reset_database(app):
     with app.app_context():
@@ -23,131 +27,17 @@ def reset_database(app):
 
 def seed_database(app):
     with app.app_context():
+        # Load data from JSON files using relative paths
+        with open(os.path.join(BASE_DIR, 'data', 'seed_slack.JSON'), 'r') as f:
+            slack_data = json.load(f)
+        
+        with open(os.path.join(BASE_DIR, 'data', 'seed_email.JSON'), 'r') as f:
+            email_data = json.load(f)
 
-        # Create Slack messages
-        messages = [
-            {
-                "project": "engineering-incidents", 
-                "message": "Incident Reported – Authentication Service Down",
-                "sender": "System",
-                "sent_at": datetime(2024, 3, 18, 10, 5).isoformat(),
-                "status": "read"
-            },
-            {
-                "project": "engineering-incidents",
-                "message": "Getting reports that users can't log in. Checking logs now.",
-                "sender": "Mark", 
-                "sent_at": datetime(2024, 3, 18, 10, 5).isoformat(),
-                "status": "read"
-            },
-            {
-                "project": "engineering-incidents",
-                "message": "Seeing a spike in 500s from the auth service. Looks like a DB connection issue?",
-                "sender": "Charlie",
-                "sent_at": datetime(2024, 3, 18, 10, 5).isoformat(),
-                "status": "read"
-            },
-            {
-                "project": "engineering-incidents",
-                "message": "Monitoring dashboards—requests are piling up, latency is through the roof. Something is definitely off.",
-                "sender": "Priya",
-                "sent_at": datetime(2024, 3, 18, 10, 5).isoformat(),
-                "status": "read"
-            },
-            {
-                "project": "engineering-incidents",
-                "message": "Customer Support is blowing up—users locked out across all regions. Do we have an ETA?",
-                "sender": "Samantha",
-                "sent_at": datetime(2024, 3, 18, 10, 5).isoformat(),
-                "status": "read"
-            },
-            {
-                "project": "engineering-incidents",
-                "message": "Rolling back the latest auth-service deployment. Might be related.",
-                "sender": "Mark",
-                "sent_at": datetime(2024, 3, 18, 10, 5).isoformat(),
-                "status": "read"
-            },
-            {
-                "project": "engineering-incidents",
-                "message": "Rollback didn't fix it. Issue persists.",
-                "sender": "Charlie",
-                "sent_at": datetime(2024, 3, 18, 10, 30).isoformat(),
-                "status": "read"
-            },
-            {
-                "project": "engineering-incidents",
-                "message": "Confirming—DB connections are maxed out, seeing timeouts in the pool.",
-                "sender": "Priya",
-                "sent_at": datetime(2024, 3, 18, 10, 30).isoformat(),
-                "status": "read"
-            },
-            {
-                "project": "engineering-incidents",
-                "message": "Could this be related to last week's infra changes? We updated how auth-service handles connection retries.",
-                "sender": "Mark",
-                "sent_at": datetime(2024, 3, 18, 10, 30).isoformat(),
-                "status": "read"
-            },
-            {
-                "project": "engineering-incidents",
-                "message": "Just got a message from the VP—this is impacting a key client. We need updates every 30 mins.",
-                "sender": "Samantha",
-                "sent_at": datetime(2024, 3, 18, 10, 30).isoformat(),
-                "status": "read"
-            },
-            {
-                "project": "engineering-incidents",
-                "message": "Narrowed it down—seems like a new rate-limit check is failing and blocking auth requests. Investigating fix.",
-                "sender": "Charlie",
-                "sent_at": datetime(2024, 3, 18, 11, 15).isoformat(),
-                "status": "read"
-            },
-            {
-                "project": "engineering-incidents",
-                "message": "We can manually clear blocked requests, but that's not a real fix. Need a patch.",
-                "sender": "Mark",
-                "sent_at": datetime(2024, 3, 18, 11, 15).isoformat(),
-                "status": "read"
-            },
-            {
-                "project": "engineering-incidents",
-                "message": "Temp fix deployed—extended connection timeout as a stopgap. Users still seeing issues, though.",
-                "sender": "Priya",
-                "sent_at": datetime(2024, 3, 18, 11, 15).isoformat(),
-                "status": "read"
-            },
-            {
-                "project": "engineering-incidents",
-                "message": "Pushed a hotfix—disabled the faulty rate-limit check. Seeing normal auth traffic now. Can someone confirm?",
-                "sender": "Charlie",
-                "sent_at": datetime(2024, 3, 18, 12, 45).isoformat(),
-                "status": "read"
-            },
-            {
-                "project": "engineering-incidents",
-                "message": "Metrics are stabilizing. Logins are back up. Looks good so far.",
-                "sender": "Priya",
-                "sent_at": datetime(2024, 3, 18, 12, 45).isoformat(),
-                "status": "read"
-            },
-            {
-                "project": "engineering-incidents",
-                "message": "Customer Support confirms logins are working for most users. Still waiting on final confirmation from some clients.",
-                "sender": "Samantha",
-                "sent_at": datetime(2024, 3, 18, 12, 45).isoformat(),
-                "status": "unread"
-            },
-            {
-                "project": "engineering-incidents",
-                "message": "Declaring the incident resolved. Postmortem scheduled for Wednesday. Thanks, everyone!",
-                "sender": "Priya",
-                "sent_at": datetime(2024, 3, 18, 15, 30).isoformat(),
-                "status": "unread"
-            }
-        ]
+        with open(os.path.join(BASE_DIR, 'data', 'seed_calendar.JSON'), 'r') as f:
+            calendar_data = json.load(f)
 
-        # Convert messages to Slack model instances
+        # Convert messages to model instances
         slack_messages = [
             Slack(
                 project=message["project"],
@@ -156,11 +46,36 @@ def seed_database(app):
                 sent_at=datetime.fromisoformat(message["sent_at"]),
                 status=message["status"]
             )
-            for message in messages
+            for message in slack_data["messages"]
         ]
 
-        # Add all messages to the database
+        email_messages = [
+            Email(
+                subject=message["subject"],
+                body=message["body"],
+                sender=message["sender"],
+                received_at=datetime.fromisoformat(message["received_at"]),
+                status=message["status"]
+            )
+            for message in email_data["messages"]
+        ]
+
+        calendar_events = [
+            Calendar(
+                title=event["title"],
+                start_datetime=datetime.fromisoformat(event["start_datetime"]),
+                end_datetime=datetime.fromisoformat(event["end_datetime"]),
+                participant_name=event["participant_name"],
+                agenda=event["agenda"],
+                status=event["status"]
+            )
+            for event in calendar_data["events"]
+        ]
+
+        # Add all records to the database
         db.session.add_all(slack_messages)
+        db.session.add_all(email_messages)
+        db.session.add_all(calendar_events)
         db.session.commit()
 
 if __name__ == '__main__':

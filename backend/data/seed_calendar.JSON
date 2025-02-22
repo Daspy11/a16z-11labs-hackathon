@@ -1,0 +1,164 @@
+{
+  "events": [
+    {
+      "title": "Weekly Engineering Sync",
+      "start_datetime": "2024-03-18T10:00:00",
+      "end_datetime": "2024-03-18T11:00:00",
+      "participant_name": "You",
+      "agenda": "Project status updates, Team blockers, Upcoming deadlines, Resource planning, Cross-team dependencies",
+      "status": "scheduled"
+    },
+    {
+      "title": "1:1 with Charlie",
+      "start_datetime": "2024-03-18T11:30:00",
+      "end_datetime": "2024-03-18T12:00:00",
+      "participant_name": "Charlie",
+      "agenda": "API performance updates, Current project blockers, Career growth discussion, Upcoming backend initiatives",
+      "status": "scheduled"
+    },
+    {
+      "title": "Auth Service Performance Review",
+      "start_datetime": "2024-03-18T13:00:00",
+      "end_datetime": "2024-03-18T14:00:00",
+      "participant_name": "Priya",
+      "agenda": "Review current metrics, Discuss bottlenecks, Plan optimization strategy, Resource allocation needs",
+      "status": "scheduled"
+    },
+    {
+      "title": "Infrastructure Planning Q2",
+      "start_datetime": "2024-03-18T14:30:00",
+      "end_datetime": "2024-03-18T15:30:00",
+      "participant_name": "Mark",
+      "agenda": "Q2 infrastructure roadmap, Scaling strategy, Budget review, Risk assessment, Timeline planning",
+      "status": "scheduled"
+    },
+    {
+      "title": "Backend Architecture Review",
+      "start_datetime": "2024-03-19T09:00:00",
+      "end_datetime": "2024-03-19T10:30:00",
+      "participant_name": "Charlie",
+      "agenda": "Current architecture overview, Proposed changes, Impact assessment, Implementation timeline, Resource needs",
+      "status": "scheduled"
+    },
+    {
+      "title": "DevOps Team Sprint Planning",
+      "start_datetime": "2024-03-19T11:00:00",
+      "end_datetime": "2024-03-19T12:00:00",
+      "participant_name": "Mark",
+      "agenda": "Previous sprint review, Next sprint goals, Task allocation, Timeline planning, Risk assessment",
+      "status": "scheduled"
+    },
+    {
+      "title": "Monitoring System Upgrade",
+      "start_datetime": "2024-03-19T14:00:00",
+      "end_datetime": "2024-03-19T15:00:00",
+      "participant_name": "Priya",
+      "agenda": "Current system limitations, Proposed upgrades, Implementation plan, Testing strategy, Rollout timeline",
+      "status": "scheduled"
+    },
+    {
+      "title": "Engineering All-Hands",
+      "start_datetime": "2024-03-20T10:00:00",
+      "end_datetime": "2024-03-20T11:00:00",
+      "participant_name": "You",
+      "agenda": "Department updates, Project highlights, Team achievements, Upcoming initiatives, Q&A session",
+      "status": "scheduled"
+    },
+    {
+      "title": "Code Review Session",
+      "start_datetime": "2024-03-20T13:00:00",
+      "end_datetime": "2024-03-20T14:00:00",
+      "participant_name": "Charlie",
+      "agenda": "Review new API endpoints, Performance considerations, Security review, Documentation updates, Testing coverage",
+      "status": "scheduled"
+    },
+    {
+      "title": "1:1 with Priya",
+      "start_datetime": "2024-03-20T14:30:00",
+      "end_datetime": "2024-03-20T15:00:00",
+      "participant_name": "Priya",
+      "agenda": "Current projects status, Career development goals, Team collaboration, Training needs, Upcoming challenges",
+      "status": "scheduled"
+    },
+    {
+      "title": "Deployment Pipeline Review",
+      "start_datetime": "2024-03-21T09:30:00",
+      "end_datetime": "2024-03-21T10:30:00",
+      "participant_name": "Mark",
+      "agenda": "Current pipeline performance, Bottlenecks identification, Optimization opportunities, Automation improvements, Metrics review",
+      "status": "scheduled"
+    },
+    {
+      "title": "API Performance Meeting",
+      "start_datetime": "2024-03-21T11:00:00",
+      "end_datetime": "2024-03-21T12:00:00",
+      "participant_name": "Charlie",
+      "agenda": "Performance metrics review, Bottleneck analysis, Optimization strategies, Resource needs, Implementation timeline",
+      "status": "scheduled"
+    },
+    {
+      "title": "Security Review",
+      "start_datetime": "2024-03-21T14:00:00",
+      "end_datetime": "2024-03-21T15:00:00",
+      "participant_name": "You",
+      "agenda": "Security audit results, Vulnerability assessment, Remediation planning, Compliance updates, Training needs",
+      "status": "scheduled"
+    },
+    {
+      "title": "1:1 with Mark",
+      "start_datetime": "2024-03-22T10:00:00",
+      "end_datetime": "2024-03-22T10:30:00",
+      "participant_name": "Mark",
+      "agenda": "Infrastructure projects update, Career growth discussion, Team dynamics, Upcoming challenges, Resource needs",
+      "status": "scheduled"
+    },
+    {
+      "title": "Database Optimization",
+      "start_datetime": "2024-03-22T11:00:00",
+      "end_datetime": "2024-03-22T12:00:00",
+      "participant_name": "Charlie",
+      "agenda": "Performance metrics review, Query optimization, Index analysis, Scaling strategy, Implementation plan",
+      "status": "scheduled"
+    },
+    {
+      "title": "CI/CD Pipeline Upgrade",
+      "start_datetime": "2024-03-22T13:30:00",
+      "end_datetime": "2024-03-22T14:30:00",
+      "participant_name": "Priya",
+      "agenda": "Current pipeline assessment, Proposed improvements, Implementation strategy, Testing approach, Rollout plan",
+      "status": "scheduled"
+    },
+    {
+      "title": "Tech Debt Review",
+      "start_datetime": "2024-03-25T10:00:00",
+      "end_datetime": "2024-03-25T11:00:00",
+      "participant_name": "You",
+      "agenda": "Current tech debt inventory, Impact assessment, Prioritization discussion, Resource allocation, Timeline planning",
+      "status": "scheduled"
+    },
+    {
+      "title": "Cloud Cost Optimization",
+      "start_datetime": "2024-03-25T13:00:00",
+      "end_datetime": "2024-03-25T14:00:00",
+      "participant_name": "Mark",
+      "agenda": "Current cost analysis, Usage patterns review, Optimization opportunities, Implementation strategy, ROI projections",
+      "status": "scheduled"
+    },
+    {
+      "title": "Incident Response Training",
+      "start_datetime": "2024-03-25T14:30:00",
+      "end_datetime": "2024-03-25T15:30:00",
+      "participant_name": "Priya",
+      "agenda": "Incident response procedures, Role assignments, Communication protocols, Escalation paths, Hands-on scenarios",
+      "status": "scheduled"
+    },
+    {
+      "title": "Architecture Planning Q2",
+      "start_datetime": "2024-03-26T09:00:00",
+      "end_datetime": "2024-03-26T10:30:00",
+      "participant_name": "Charlie",
+      "agenda": "Current architecture review, Q2 objectives, Proposed changes, Resource requirements, Implementation roadmap",
+      "status": "scheduled"
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "messages": [
+    {
+      "subject": "Q1 2024 Performance Review Schedule",
+      "body": "Please schedule your Q1 performance review with your manager by end of next week. The review window is March 25-April 5.",
+      "sender": "hr@company.com",
+      "received_at": "2024-03-18T09:00:00",
+      "status": "unread"
+    },
+    {
+      "subject": "Urgent: Server Maintenance Tonight",
+      "body": "Emergency maintenance window scheduled for tonight 11 PM-2 AM EST to address critical security patches. Expect system downtime.",
+      "sender": "it.ops@company.com",
+      "received_at": "2024-03-18T10:15:00",
+      "status": "read"
+    },
+    {
+      "subject": "New Client Onboarding - Acme Corp",
+      "body": "Welcome aboard Acme Corp! Kickoff meeting scheduled for tomorrow at 2 PM EST. Please review attached documentation.",
+      "sender": "sales@company.com",
+      "received_at": "2024-03-18T11:30:00",
+      "status": "unread"
+    },
+    {
+      "subject": "Office Supply Order Confirmation",
+      "body": "Your office supply order (ID: 45789) has been processed and will arrive by Thursday, March 21.",
+      "sender": "supplies@company.com",
+      "received_at": "2024-03-18T12:45:00",
+      "status": "read"
+    },
+    {
+      "subject": "Updated Health Benefits Package",
+      "body": "Important changes to our health benefits package effective April 1st. Please review the attached documentation.",
+      "sender": "benefits@company.com",
+      "received_at": "2024-03-18T13:20:00",
+      "status": "unread"
+    },
+    {
+      "subject": "Team Building Event Next Month",
+      "body": "Save the date: Annual team building retreat scheduled for April 15-16 at Mountain View Resort.",
+      "sender": "events@company.com",
+      "received_at": "2024-03-18T14:10:00",
+      "status": "read"
+    },
+    {
+      "subject": "Project Phoenix - Sprint Review",
+      "body": "Sprint review meeting tomorrow at 10 AM EST. Please prepare your updates for the stakeholder demo.",
+      "sender": "project.manager@company.com",
+      "received_at": "2024-03-18T14:45:00",
+      "status": "unread"
+    },
+    {
+      "subject": "Parking Garage Maintenance",
+      "body": "Level 2 of the parking garage will be closed for maintenance on Friday. Please use levels 3-5.",
+      "sender": "facilities@company.com",
+      "received_at": "2024-03-18T15:00:00",
+      "status": "read"
+    },
+    {
+      "subject": "Quarterly Security Training Due",
+      "body": "Reminder: Complete your mandatory security training by March 31st. Access the course via the learning portal.",
+      "sender": "security@company.com",
+      "received_at": "2024-03-18T15:30:00",
+      "status": "unread"
+    },
+    {
+      "subject": "New Feature Release - Beta Testing",
+      "body": "Looking for volunteers to beta test our new analytics dashboard. Testing period: March 25-29.",
+      "sender": "product@company.com",
+      "received_at": "2024-03-18T16:00:00",
+      "status": "read"
+    },
+    {
+      "subject": "401k Plan Changes",
+      "body": "Important updates to our 401k investment options. Virtual info session scheduled for next Tuesday at 1 PM EST.",
+      "sender": "finance@company.com",
+      "received_at": "2024-03-18T16:15:00",
+      "status": "unread"
+    },
+    {
+      "subject": "Client Demo Preparation",
+      "body": "Pre-meeting sync for tomorrow's Acme Corp demo. Let's review the presentation at 4 PM today.",
+      "sender": "sales.director@company.com",
+      "received_at": "2024-03-18T16:30:00",
+      "status": "read"
+    },
+    {
+      "subject": "Office Snack Survey",
+      "body": "Help us stock the kitchen! Fill out the quick survey to vote on new snack options for the office.",
+      "sender": "office.management@company.com",
+      "received_at": "2024-03-18T16:45:00",
+      "status": "read"
+    },
+    {
+      "subject": "Upcoming System Upgrade",
+      "body": "Major system upgrade planned for this weekend. Please save all work and log out by Friday 6 PM EST.",
+      "sender": "it.support@company.com",
+      "received_at": "2024-03-18T17:00:00",
+      "status": "unread"
+    },
+    {
+      "subject": "Monthly All-Hands Meeting",
+      "body": "March all-hands meeting scheduled for this Friday at 11 AM EST. Submit your questions for the Q&A by Thursday.",
+      "sender": "communications@company.com",
+      "received_at": "2024-03-18T17:15:00",
+      "status": "read"
+    }
+  ]
+}
