@@ -1,0 +1,171 @@
+$schema: http://json-schema.org/draft-07/schema#
+title: IBM OpenAPI Validator Results Schema
+description: The results produced by running the validator on an API definition
+type: object
+additionalProperties: false
+required:
+  - error
+  - warning
+  - info
+  - hint
+  - hasResults
+properties:
+  error:
+    $ref: '#/$defs/ValidationData'
+  warning:
+    $ref: '#/$defs/ValidationData'
+  info:
+    $ref: '#/$defs/ValidationData'
+  hint:
+    $ref: '#/$defs/ValidationData'
+  hasResults:
+    type: boolean
+    description: A convenience flag indicating there is at least one result at any severity level
+  impactScore:
+    type: object
+    description: Data translating the validation results into numeric scores
+    required:
+      - categorizedSummary
+      - scoringData
+    properties:
+      categorizedSummary:
+        type: object
+        description: Holds the max score for each API impact category
+        required:
+          # Must match the category enum values in the "rubric-entry" schema.
+          - usability
+          - security
+          - robustness
+          - evolution
+          - overall
+        properties:
+          usability:
+            $ref: '#/$defs/MaxScore'
+          security:
+            $ref: '#/$defs/MaxScore'
+          robustness:
+            $ref: '#/$defs/MaxScore'
+          evolution:
+            $ref: '#/$defs/MaxScore'
+          overall:
+            $ref: '#/$defs/MaxScore'
+      scoringData:
+        type: array
+        description: >-
+          Holds information describing how each rule violation contributes to the max score.
+          May be empty if only the summary is requested.
+        items:
+          type: object
+          description: The scoring data contributed by a given validator rule
+          required:
+            - rule
+            - count
+            - func
+            - demerits
+          properties:
+            rule:
+              type: string
+              description: The validator rule that was violated
+            count:
+              type: integer
+              description: The number of times the validator rule was violated
+              minimum: 1
+            func:
+              type: string
+              description: A string representation of the formula used to compute the demerits
+            demerits:
+              type: object
+              description: The categorized, numeric impact a rule violation has on the score
+              # Must match the category enum values in the "rubric-entry" schema.
+              properties:
+                usability:
+                  $ref: '#/$defs/Demerit'
+                security:
+                  $ref: '#/$defs/Demerit'
+                robustness:
+                  $ref: '#/$defs/Demerit'
+                evolution:
+                  $ref: '#/$defs/Demerit'
+                total:
+                  $ref: '#/$defs/Demerit'
+
+$defs:
+  ValidationData:
+    type: object
+    additionalProperties: false
+    required:
+      - results
+      - summary
+    properties:
+      results:
+        type: array
+        description: >-
+          List of results with a given severity. May be empty if only the summary is requested.
+        items:
+          $ref: '#/$defs/ValidationResult'
+      summary:
+        type: object
+        additionalProperties: false
+        required:
+          - entries
+          - total
+        properties:
+          entries:
+            type: array
+            description: List of metadata summarizing the results at a given severity
+            items:
+              $ref: '#/$defs/SummaryEntry'
+          total:
+            type: integer
+            description: The total number of validations with a given severity
+  ValidationResult:
+    type: object
+    additionalProperties: false
+    required:
+      - message
+      - path
+      - rule
+      - line
+    properties:
+      message:
+        type: string
+        description: A description of the problem discovered in the API
+      path:
+        type: array
+        items:
+          type: string
+        description: An array containing the field names of the API document
+          that lead to the location of the discovered problem
+      rule:
+        type: string
+        description: The rule identifier in the Spectral ruleset
+      line:
+        type: integer
+        description: The line number in the original file that the problem
+          was discovered on
+  SummaryEntry:
+    type: object
+    additionalProperties: false
+    required:
+      - generalizedMessage
+      - count
+      - percentage
+    properties:
+      generalizedMessage:
+        type: string
+        description: Generalized version of a rule message that has been reported by the validator
+      count:
+        type: integer
+        description: The number of times this specific rule has been violated in the API
+      percentage:
+        type: integer
+        description: The percentage of total violations for a given severity that this rule comprises
+  MaxScore:
+    type: integer
+    description: A number describing the maximum score for an API after accounting for the impact of rule violations
+    minimum: 0
+    maximum: 100
+  Demerit:
+    type: number
+    description: A number describing the demerit impact a rule has on an API
+    minimum: 0.01
