@@ -1,4 +1,15 @@
-Please review the following PR and provide a conscise summary of the changes and changes required.
+Provide an overview of this PR.
+
+Immediately state one of three verdicts:
+
+"it's ready to go" (NO CHANGES NEEDED)
+"it needs MINOR CHANGES" (MINOR CHANGES NEEDED)
+"it needs MAJOR CHANGES" (MAJOR CHANGES NEEDED)
+
+
+In 1-2 sentences, highlight what was done correctly
+In 1-2 sentences, state what needs to be fixed (if anything)
+End with a simple offer for more details
 
 <input>
 {
