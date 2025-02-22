@@ -1,0 +1,31 @@
+# Virtual environment
+.venv/
+
+# Cache
+__pycache__/
+app/__pycache__/
+app/routes/__pycache__/
+
+# Local development
+instance/
+app.db
+migrations/
+
+# Testing
+.coverage
+.coverage.*
+.pytest_cache/
+tests/
+
+# Enviroment variables
+.env*
+!.env.example
+
+# Version control
+.git
+.gitignore
+
+# Docker files
+Dockerfile*
+docker-compose*
+.dockerignore

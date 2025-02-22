@@ -3,3 +3,16 @@ frontend/.DS_Store
 frontend/.definition
 frontend/.preview
 frontend/.env
+
+# Backend (Python)
+backend/.venv
+backend/app/__pycache__/
+backend/app/routes/__pycache__/
+backend/__pycache__/
+backend/tests/__pycache__
+backend/instance/
+backend/app.db
+backend/migrations/
+backend/.coverage*
+backend/.env*
+!backend/.env.example
