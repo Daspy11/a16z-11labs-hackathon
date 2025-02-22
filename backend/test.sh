@@ -2,14 +2,14 @@ if [ -d ".venv" ]; then
     source .venv/bin/activate
     PYTHON_VERSION=$(python -c 'import sys; print(f"{sys.version_info.major}.{sys.version_info.minor}")')
 
-    if [ "$PYTHON_VERSION" != "3.13" ]; then
-        echo "Error: Wrong Python version. Expected 3.13, found $PYTHON_VERSION"
+    if [ "$PYTHON_VERSION" != "3.11" ]; then
+        echo "Error: Wrong Python version. Expected 3.11, found $PYTHON_VERSION"
         deactivate
         exit 1
     fi
 else
     echo "Creating virtual environment..."
-    python3.13 -m venv .venv
+    python3.11 -m venv .venv
     source .venv/bin/activate
 fi
 
