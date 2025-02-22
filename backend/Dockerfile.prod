@@ -13,4 +13,4 @@ ENV PORT=8080
 EXPOSE 8080
 
 # Run DB migrations and start prod Gunicorn server
-CMD gunicorn wsgi:app --bind 0.0.0.0:$PORT --workers=3 --log-level=info
+CMD python reset_db.py && gunicorn wsgi:app --bind 0.0.0.0:$PORT --workers=3 --log-level=info

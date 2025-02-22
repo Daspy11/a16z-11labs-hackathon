@@ -13,4 +13,4 @@ ENV PORT=8080
 EXPOSE 8080
 
 # Run DB migrations and start prod Gunicorn server
-CMD python run.py
+CMD python reset_db.py && python run.py
