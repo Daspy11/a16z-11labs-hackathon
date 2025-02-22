@@ -3,7 +3,7 @@ from app.models import Slack
 from app.routes import bp
 
 @bp.route('/slack', methods=['GET'])
-def get_mappings():
+def get_slack():
     try:
         # Get optional filter parameters from query string
         status = request.args.get('message_status')
