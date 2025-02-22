@@ -1,0 +1,25 @@
+{
+  "branches": "main",
+  "debug": true,
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
+    "@semantic-release/changelog",
+    "@semantic-release/npm",
+    "@semantic-release/git",
+    [
+      "@semantic-release/exec",
+      {
+        "publishCmd": "npm run pkg"
+      }
+    ],
+    [
+      "@semantic-release/github",
+      {
+        "assets": [
+          "bin/*"
+        ]
+      }
+    ]
+  ]
+}
