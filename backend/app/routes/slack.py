@@ -6,7 +6,9 @@ from app.routes import bp
 def get_slack():
     try:
         # Get optional filter parameters from query string
-        status = request.args.get('message_status')
+        status = request.args.get('status')
+        sender = request.args.get('sender')
+        project = request.args.get('project')
 
         # Start with base query
         query = Slack.query
@@ -14,6 +16,10 @@ def get_slack():
         # Apply filters only if parameters are provided
         if status:
             query = query.filter_by(status=status)
+        if sender:
+            query = query.filter_by(sender=sender)
+        if project:
+            query = query.filter_by(project=project)
 
         # Execute query and return results
         messages = query.all()

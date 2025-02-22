@@ -6,7 +6,9 @@ from app.routes import bp
 def get_email():
     try:
         # Get optional filter parameters from query string
-        status = request.args.get('message_status')
+        status = request.args.get('status')
+        sender = request.args.get('sender')
+        subject = request.args.get('subject')
 
         # Start with base query
         query = Email.query
@@ -14,6 +16,11 @@ def get_email():
         # Apply filters only if parameters are provided
         if status:
             query = query.filter_by(status=status)
+        if sender:
+            query = query.filter_by(sender=sender)
+        if subject:
+            # Use LIKE with wildcards for fuzzy subject search
+            query = query.filter(Email.subject.ilike(f'%{subject}%'))
 
         # Execute query and return results
         emails = query.all()
