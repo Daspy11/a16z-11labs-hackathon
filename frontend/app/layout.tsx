@@ -11,10 +11,18 @@ import { Toaster } from '@/components/ui/sonner';
 
 import './globals.css';
 
+import { config } from '@fortawesome/fontawesome-svg-core'
+import '@fortawesome/fontawesome-svg-core/styles.css'
+config.autoAddCss = false
+
+
 export const metadata: Metadata = {
   title: {
     default: 'ElevenLabs Next.js Playground',
     template: '%s | ElevenLabs Next.js',
+  },
+  icons: {
+    icon: '/favicon.png',
   },
   metadataBase: new URL('https://elevenlabs-playground.vercel.app'),
   description: 'A Next.JS playground to explore ElevenLabs capabilities.',
@@ -33,30 +41,23 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const apiKey = apiKeyResult.ok ? apiKeyResult.value : null;
 
   return (
-    <html lang="en" suppressHydrationWarning className="dark">
+    <html lang="en" suppressHydrationWarning>
       <body>
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
+          defaultTheme="light"
           enableSystem={false}
-          forcedTheme="dark"
+          forcedTheme="light"
           disableTransitionOnChange
         >
           <KeyProvider apiKey={apiKey}>
             <SidebarProvider>
               <AppSidebar />
               <SidebarInset className="background-gradient">
-                <header className="relative flex h-[60px] shrink-0 items-center justify-center">
+                <header className="relative flex h-[60px] shrink-0 items-center justify-center bg-white ">
                   <SidebarTrigger className="absolute left-3" />
                 </header>
-                <div className="p-4">
-                  <div className="mx-auto max-w-4xl space-y-3 px-2 pt-20 lg:px-8 lg:py-8">
-                    <Byline />
-                    <Card className="border-gradient rounded-lg p-px shadow-lg">
-                      <div className="bg-card rounded-lg">{children}</div>
-                    </Card>
-                  </div>
-                </div>
+                {children}
               </SidebarInset>
             </SidebarProvider>
           </KeyProvider>

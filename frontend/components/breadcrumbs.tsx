@@ -10,7 +10,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
-import { findDemoBySlug } from '@/lib/demos';
+import { findDemoBySlug } from '@/lib/sidebarConfig';
 
 export function Breadcrumbs() {
   const pathname = usePathname();

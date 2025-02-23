@@ -3,6 +3,8 @@ frontend/.DS_Store
 frontend/.definition
 frontend/.preview
 frontend/.env
+frontend/.next
+frontend/.pnpm
 
 # Backend (Python)
 backend/.venv
