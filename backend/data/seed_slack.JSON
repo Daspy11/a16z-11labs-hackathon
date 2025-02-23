@@ -114,7 +114,7 @@
     },
     {
       "project": "engineering-incidents",
-      "message": "Sweet guys! The incident is resolved. Let's schedule a postmortem on Wednesday. Thanks, everyone!",
+      "message": "Ok guys, at the end of the day, even though we had an incident, it's been resolved. Let's schedule a postmortem on Wednesday. Thanks, everyone!",
       "sender": "Priya",
       "sent_at": "2024-03-18T15:30:00",
       "status": "unread"
