@@ -1,0 +1,68 @@
+{
+    "type": "json_schema",
+    "json_schema": {
+      "name": "task_schema",
+      "strict": true,
+      "schema": {
+        "type": "object",
+        "properties": {
+          "tasks": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": { "type": "string", "format": "uuid" },
+                "description": { "type": "string" },
+                "priority": {
+                  "type": "string",
+                  "enum": ["high", "medium", "low"]
+                },
+                "due_date": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "source": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "enum": ["github_alert", "slack_message", "email"]
+                    },
+                    "reference_id": { "type": "string" },
+                    "url": { "type": "string", "format": "uri" },
+                    "channel": { "type": "string" },
+                    "message_id": { "type": "string" },
+                    "timestamp": { "type": "string", "format": "date-time" },
+                    "email_id": { "type": "string" },
+                    "subject": { "type": "string" },
+                    "from": { "type": "string", "format": "email" }
+                  },
+                  "required": ["type"],
+                  "additionalProperties": false
+                },
+                "custom_fields": {
+                  "type": "object",
+                  "properties": {
+                    "related_service": { "type": "string" },
+                    "tags": {
+                      "type": "array",
+                      "items": { "type": "string" }
+                    },
+                    "requires_followup": { "type": "boolean" }
+                  },
+                  "additionalProperties": false
+                },
+                "boss_proposed_response": { "type": "string" }
+              },
+              "required": ["id", "description", "priority", "source"],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": ["tasks"],
+        "additionalProperties": false
+      }
+    },
+    "strict": true
+  }
+  
