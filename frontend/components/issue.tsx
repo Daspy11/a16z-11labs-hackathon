@@ -179,7 +179,7 @@ const StatusSection = ({
         </button>
       </div>
       <div>
-        {group.issues.map(issue => <IssueRow key={issue.id} issue={issue} />)}
+        {group.issues.map((issue, index) => <IssueRow key={`${issue.id}_${index}`} issue={issue} />)}
       </div>
     </div>;
 };
