@@ -14,3 +14,4 @@ class Config:
     FLASK_DEBUG = os.getenv('FLASK_DEBUG', '0')
     FLASK_PORT = os.getenv('FLASK_PORT', '8080')
     FRONTEND_URL = os.getenv('FRONTEND_URL', 'http://localhost:3000')
+    ELEVENLABS_API_KEY = os.getenv('ELEVENLABS_API_KEY', 'your_eleven_labs_apikey')
