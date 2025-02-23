@@ -13,6 +13,7 @@ import './globals.css';
 
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
+import { PostHogProvider } from '@/components/posthog';
 config.autoAddCss = false
 
 
@@ -43,26 +44,28 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   return (
     <html lang="en" suppressHydrationWarning>
       <body>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem={false}
-          forcedTheme="light"
-          disableTransitionOnChange
-        >
-          <KeyProvider apiKey={apiKey}>
-            <SidebarProvider>
-              <AppSidebar />
-              <SidebarInset className="background-gradient">
-                <header className="relative flex h-[60px] shrink-0 items-center justify-center bg-white ">
-                  <SidebarTrigger className="absolute left-3" />
-                </header>
-                {children}
-              </SidebarInset>
-            </SidebarProvider>
-          </KeyProvider>
-          <Toaster />
-        </ThemeProvider>
+        <PostHogProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="light"
+            enableSystem={false}
+            forcedTheme="light"
+            disableTransitionOnChange
+          >
+            <KeyProvider apiKey={apiKey}>
+              <SidebarProvider>
+                <AppSidebar />
+                <SidebarInset className="background-gradient">
+                  <header className="relative flex h-[60px] shrink-0 items-center justify-center bg-white ">
+                    <SidebarTrigger className="absolute left-3" />
+                  </header>
+                  {children}
+                </SidebarInset>
+              </SidebarProvider>
+            </KeyProvider>
+            <Toaster />
+          </ThemeProvider>
+        </PostHogProvider>
       </body>
     </html>
   );
