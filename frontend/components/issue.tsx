@@ -4,6 +4,7 @@ import { cn } from '@/lib/utils';
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
 import { Input } from './ui/input';
+import Link from 'next/link';
 
 export interface Issue {
   id: string;
@@ -156,7 +157,8 @@ const IssueRow = ({
 }: {
   issue: Issue;
 }) => {
-  return <div role="button" onClick={() => console.log('Clicked issue:', issue.id)} className="group flex items-center gap-3 px-4 py-2.5 hover:bg-gray-100/40 transition-all duration-200 cursor-pointer">
+  return (
+    <Link href={`/issues/${issue.id}`} className="group flex items-center gap-3 px-4 py-2.5 hover:bg-gray-100/40 transition-all duration-200 cursor-pointer">
       <div className="flex items-center gap-3 flex-1">
         <StatusIcon status={issue.status} />
         <span className="text-gray-900 text-xs">{issue.title}</span>
@@ -186,7 +188,8 @@ const IssueRow = ({
           </PopoverContent>
         </Popover>
       </div>
-    </div>;
+    </Link>
+  );
 };
 
 const StatusSection = ({

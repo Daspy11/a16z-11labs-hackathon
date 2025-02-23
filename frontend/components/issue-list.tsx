@@ -292,8 +292,8 @@ const IssueRow = ({ issue, onStatusChange }: { issue: Issue; onStatusChange?: (i
           {issue.title}
         </Link>
         {issue.comments && <span className="flex items-center gap-1 text-[10px] bg-gray-200 text-gray-700 px-1.5 py-0.5 rounded-full">
-            {issue.comments}
-          </span>}
+          {issue.comments}
+        </span>}
       </div>
       <div className="flex items-center gap-3">
         <span className="text-gray-500 text-[10px]">{issue.date}</span>
