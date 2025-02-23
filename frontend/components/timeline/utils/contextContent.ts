@@ -2,30 +2,9 @@
 export const getContextSummary = (source: 'slack' | 'github' | 'gmail', type: string) => {
   switch (source) {
     case 'slack':
-      return `**Sarah Wang** [10:15 AM]
-Just started looking into the UK phone validation requirements. We'll need to handle multiple formats.
-
-**Alex Chen** [10:17 AM]
-Yeah, we should definitely support both +44 and 0 prefixes.`;
-    case 'github':
-      return type === 'issue'
-        ? `# Phone Number Validation System
-
-## Overview
-Implementation of robust phone number validation for UK numbers with spam prevention.`
-        : `## Phone Validation Implementation - PR #456
-
-This PR implements the core phone validation system with the following changes:
-- Added UK phone validation
-- Implemented rate limiting`;
-    case 'gmail':
-      return `From: Client Product Team <product@client.com>
-Subject: Phone Validation Requirements
-Date: February 25, 2024
-
-> From: Engineering Team <eng@company.com>
-> Can you clarify the requirements for phone validation?`;
-  }
+      return `**Leo:** [10:25AM] Returned from PTO, briefed by PA about a recent authentication service outage. 
+      The incident was resolved, and the postmortem is available. 
+      Three PRs await review, and there's a backlog of Slack messages and emails to address.`;
 };
 
 export const getContextDetails = (source: 'slack' | 'github' | 'gmail', type: string) => {
