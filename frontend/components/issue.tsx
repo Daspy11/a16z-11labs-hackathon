@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from 'next/link';
 import { AlertCircle, Circle, Clock, MoreHorizontal, Plus, Slack, Github, Mail, CalendarDays, MessageCircle, GitPullRequest, HelpCircle, Trash } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
@@ -157,58 +156,37 @@ const IssueRow = ({
 }: {
   issue: Issue;
 }) => {
-  return (
-    <Link href={`/issues/${issue.id}`} className="block">
-      <div className="group flex items-center gap-3 px-4 py-2.5 hover:bg-gray-100/40 transition-all duration-200 cursor-pointer">
-        <div className="flex items-center gap-3 flex-1">
-          <StatusIcon status={issue.status} />
-          <span className="text-gray-900 text-xs">{issue.title}</span>
-          {issue.comments && (
-            <span className="flex items-center gap-1 text-[10px] bg-gray-200 text-gray-700 px-1.5 py-0.5 rounded-full">
-              {issue.comments}
-            </span>
-          )}
-        </div>
-        <div className="flex items-center gap-3">
-          <span className="text-gray-500 text-[10px]">{issue.date}</span>
-          <SourceChip source={issue.source} />
-          <Popover>
-            <PopoverTrigger asChild>
-              <button 
-                className="opacity-0 group-hover:opacity-100 transition-opacity" 
-                onClick={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                }}
-              >
-                <MoreHorizontal className="w-3.5 h-3.5 text-gray-400" />
-              </button>
-            </PopoverTrigger>
-            <PopoverContent 
-              className="w-auto p-0 bg-white shadow-lg" 
-              align="end" 
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-              }}
-            >
-              <button 
-                className="flex items-center gap-2 px-3 py-1.5 text-xs text-red-600 hover:bg-red-50 w-full" 
-                onClick={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  console.log('Delete issue:', issue.id);
-                }}
-              >
-                <Trash className="w-3.5 h-3.5" />
-                Delete
-              </button>
-            </PopoverContent>
-          </Popover>
-        </div>
+  return <div role="button" onClick={() => console.log('Clicked issue:', issue.id)} className="group flex items-center gap-3 px-4 py-2.5 hover:bg-gray-100/40 transition-all duration-200 cursor-pointer">
+      <div className="flex items-center gap-3 flex-1">
+        <StatusIcon status={issue.status} />
+        <span className="text-gray-900 text-xs">{issue.title}</span>
+        {issue.comments && <span className="flex items-center gap-1 text-[10px] bg-gray-200 text-gray-700 px-1.5 py-0.5 rounded-full">
+            {issue.comments}
+          </span>}
       </div>
-    </Link>
-  );
+      <div className="flex items-center gap-3">
+        <span className="text-gray-500 text-[10px]">{issue.date}</span>
+        <SourceChip source={issue.source} />
+        <Popover>
+          <PopoverTrigger asChild>
+            <button className="opacity-0 group-hover:opacity-100 transition-opacity" onClick={e => {
+            e.stopPropagation();
+          }}>
+              <MoreHorizontal className="w-3.5 h-3.5 text-gray-400" />
+            </button>
+          </PopoverTrigger>
+          <PopoverContent className="w-auto p-0 bg-white shadow-lg" align="end" onClick={e => e.stopPropagation()}>
+            <button className="flex items-center gap-2 px-3 py-1.5 text-xs text-red-600 hover:bg-red-50 w-full" onClick={e => {
+            e.stopPropagation();
+            console.log('Delete issue:', issue.id);
+          }}>
+              <Trash className="w-3.5 h-3.5" />
+              Delete
+            </button>
+          </PopoverContent>
+        </Popover>
+      </div>
+    </div>;
 };
 
 const StatusSection = ({
@@ -264,16 +242,16 @@ const IssueList = ({ issues, filters, onFilterChange }: IssueListProps) => {
           <Input
             type="text"
             placeholder="Search issues..."
-            className="h-7 w-full bg-gray-50 border-gray-200 text-xs placeholder:text-gray-500 focus-visible:ring-1 focus-visible:ring-gray-300 focus-visible:ring-offset-0 rounded-md"
+            className="h-7 w-full bg-gray-50 border-gray-200 text-xs placeholder:text-gray-500 focus-visible:ring-1 focus-visible:ring-gray-300 focus-visible:ring-offset-0"
             value={filters.search}
             onChange={(e) => onFilterChange({ search: e.target.value })}
           />
         </div>
         <Select value={filters.status || 'all'} onValueChange={(value) => onFilterChange({ status: value === 'all' ? undefined : value as Issue['status'] })}>
-          <SelectTrigger className="h-7 w-32 px-2 text-xs bg-gray-50 border-gray-200 hover:bg-gray-100 focus:ring-gray-300 focus:ring-offset-0 rounded-md">
+          <SelectTrigger className="h-7 w-32 px-2 text-xs bg-gray-50 border-gray-200 hover:bg-gray-100 focus:ring-gray-300 focus:ring-offset-0">
             <SelectValue placeholder="All statuses" />
           </SelectTrigger>
-          <SelectContent className="text-xs rounded-md">
+          <SelectContent className="text-xs">
             <SelectItem value="all">All statuses</SelectItem>
             <SelectItem value="inProgress">In Progress</SelectItem>
             <SelectItem value="todo">Todo</SelectItem>
@@ -281,10 +259,10 @@ const IssueList = ({ issues, filters, onFilterChange }: IssueListProps) => {
           </SelectContent>
         </Select>
         <Select value={filters.source || 'all'} onValueChange={(value) => onFilterChange({ source: value === 'all' ? undefined : value as Issue['source'] })}>
-          <SelectTrigger className="h-7 w-32 px-2 text-xs bg-gray-50 border-gray-200 hover:bg-gray-100 focus:ring-gray-300 focus:ring-offset-0 rounded-md">
+          <SelectTrigger className="h-7 w-32 px-2 text-xs bg-gray-50 border-gray-200 hover:bg-gray-100 focus:ring-gray-300 focus:ring-offset-0">
             <SelectValue placeholder="All sources" />
           </SelectTrigger>
-          <SelectContent className="text-xs rounded-md">
+          <SelectContent className="text-xs">
             <SelectItem value="all">All sources</SelectItem>
             <SelectItem value="slack">Slack</SelectItem>
             <SelectItem value="github">GitHub</SelectItem>

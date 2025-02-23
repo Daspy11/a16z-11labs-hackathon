@@ -15,25 +15,25 @@ export interface Issue {
 // Initial mock data
 const initialIssues: Issue[] = [
   {
-    "id": "AUTH-101",
+    "id": "DEL-96",
     "status": "done",
-    "title": "Investigate Authentication Service Outage",
+    "title": "Investigate Authentication Service Outage", 
     "date": "Feb 23",
-    "source": "slack", 
+    "source": "slack",
     "priority": true,
     "description": "Users are unable to log in due to a suspected database connection issue with the authentication service.  This is impacting customers across all regions.  A rollback of the latest auth-service deployment did not resolve the issue.  The VP has been notified and is requesting updates every 30 minutes."
   },
   {
-    "id": "AUTH-102",
+    "id": "DEL-101",
     "status": "done",
     "title": "Implement Robust Rate Limiting",
-    "date": "Feb 23",
+    "date": "Feb 23", 
     "source": "slack",
     "priority": false,
     "description": "A new rate-limit check introduced in the authentication service is failing and blocking legitimate authentication requests. This needs to be redesigned and implemented correctly to prevent future outages."
   },
   {
-    "id": "AUTH-103",
+    "id": "DEL-97",
     "status": "done",
     "title": "Review Auth-Service Connection Retries",
     "date": "Feb 23",
@@ -42,7 +42,7 @@ const initialIssues: Issue[] = [
     "description": "Investigate the recent infrastructure changes to how the auth-service handles connection retries, as this might be related to the current outage.  Ensure retry mechanisms are robust and do not exacerbate database connection issues."
   },
   {
-    "id": "OPS-101",
+    "id": "DEL-102",
     "status": "todo",
     "title": "Conduct Postmortem for Auth Service Outage",
     "date": "Feb 23",
@@ -51,7 +51,7 @@ const initialIssues: Issue[] = [
     "description": "A postmortem needs to be conducted to thoroughly analyze the root cause of the authentication service outage, identify areas for improvement, and document findings to prevent similar incidents in the future. This postmortem is scheduled for Wednesday."
   },
   {
-    "id": "PR-123",
+    "id": "DEL-96",
     "status": "todo",
     "title": "Integrate Eleven Labs API for Conversational Capabilities",
     "date": "Feb 23",
