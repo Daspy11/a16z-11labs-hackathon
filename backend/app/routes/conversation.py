@@ -6,7 +6,6 @@ import time
 
 @bp.route('/convo/<conversation_id>', methods=['GET'])
 def get_conversation(conversation_id):
-    import pdb; pdb.set_trace()
     try:
         print(f"Conversation ID: {conversation_id}")
         client = ElevenLabs(
