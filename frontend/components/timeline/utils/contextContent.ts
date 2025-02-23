@@ -2,9 +2,8 @@
 export const getContextSummary = (source: 'slack' | 'github' | 'gmail', type: string) => {
   switch (source) {
     case 'slack':
-      return `**Leo:** [10:25AM] Returned from PTO, briefed by PA about a recent authentication service outage. 
-      The incident was resolved, and the postmortem is available. 
-      Three PRs await review, and there's a backlog of Slack messages and emails to address.`;
+      return `**Leo:** [10:25AM] Returned from PTO, briefed by PA about a recent authentication service outage. The incident was resolved, and the postmortem is available. Three PRs await review, and there's a backlog of Slack messages and emails to address.`;
+  }
 };
 
 export const getContextDetails = (source: 'slack' | 'github' | 'gmail', type: string) => {
