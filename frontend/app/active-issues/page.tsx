@@ -5,32 +5,79 @@ import IssueList, { Issue, IssueFilters } from '@/components/issue';
 
 const mockIssues: Issue[] = [{
   id: 'DEL-96',
-  status: 'inProgress',
-  title: 'Richmond: Create voice agents ahead of launch',
+  status: 'inProgress', 
+  title: 'Post-mortem: Document authentication system outage timeline',
   date: 'Feb 21',
-  source: 'slack',
-  priority: true
+  source: 'linear',
+  priority: true,
+  comments: 3
 }, {
   id: 'DEL-101',
-  status: 'todo',
-  title: 'Richmond: UK phone number + Spam Prevention',
-  date: 'Feb 21',
-  source: 'github',
+  status: 'inProgress',
+  title: 'Update status page with outage resolution details',
+  date: 'Feb 21', 
+  source: 'slack',
   priority: true
 }, {
   id: 'DEL-97',
   status: 'todo',
-  title: 'Richmond: Workflow (Scheduler, Trigger, Post-processing)',
+  title: 'Review and update authentication system monitoring alerts',
   date: 'Feb 21',
-  source: 'gmail',
+  source: 'linear',
+  comments: 2
+}, {
+  id: 'DEL-102',
+  status: 'todo',
+  title: '[Mark] Implement additional authentication system health checks',
+  date: 'Feb 21',
+  source: 'github',
+  priority: true
+}, {
+  id: 'DEL-102',
+  status: 'todo',
+  title: '[Samantha] Analyze authentication logs for root cause',
+  date: 'Feb 21',
+  source: 'linear',
+  comments: 4
+}, {
+  id: 'DEL-102',
+  status: 'todo',
+  title: '[Charlie] Update disaster recovery documentation',
+  date: 'Feb 21',
+  source: 'github',
+  priority: true
+}, {
+  id: 'DEL-102',
+  status: 'backlog',
+  title: 'Schedule authentication system load testing',
+  date: 'Feb 21',
+  source: 'linear'
+}, {
+  id: 'DEL-102',
+  status: 'backlog',
+  title: 'Review and update authentication system backup procedures',
+  date: 'Feb 21',
+  source: 'zendesk',
   comments: 1
 }, {
   id: 'DEL-102',
   status: 'backlog',
-  title: 'Dialpad: SMS Approval',
+  title: 'Plan authentication system redundancy improvements',
   date: 'Feb 21',
-  source: 'whatsapp',
-  priority: true
+  source: 'linear'
+}, {
+  id: 'DEL-102',
+  status: 'backlog',
+  title: 'Document lessons learned from authentication outage',
+  date: 'Feb 21',
+  source: 'slack',
+  comments: 5
+}, {
+  id: 'DEL-102',
+  status: 'backlog',
+  title: 'Schedule team review of incident response process',
+  date: 'Feb 21',
+  source: 'gcal'
 }];
 
 export default function ActiveIssuesPage() {

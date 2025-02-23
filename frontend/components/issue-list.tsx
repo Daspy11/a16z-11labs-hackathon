@@ -23,36 +23,6 @@ interface FilterState {
   hasPriority: boolean | 'all';
 }
 
-const mockIssues: Issue[] = [{
-  id: 'DEL-96',
-  status: 'inProgress',
-  title: 'Richmond: Create voice agents ahead of launch',
-  date: 'Feb 21',
-  source: 'slack',
-  priority: true
-}, {
-  id: 'DEL-101',
-  status: 'todo',
-  title: 'Richmond: UK phone number + Spam Prevention',
-  date: 'Feb 21',
-  source: 'github',
-  priority: true
-}, {
-  id: 'DEL-97',
-  status: 'todo',
-  title: 'Richmond: Workflow (Scheduler, Trigger, Post-processing)',
-  date: 'Feb 21',
-  source: 'gmail',
-  comments: 1
-}, {
-  id: 'DEL-102',
-  status: 'backlog',
-  title: 'Dialpad: SMS Approval',
-  date: 'Feb 21',
-  source: 'whatsapp',
-  priority: true
-}];
-
 const FilterBuilder = ({ onFilterChange }: { onFilterChange: (filters: FilterState) => void }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [filters, setFilters] = useState<FilterState>({
