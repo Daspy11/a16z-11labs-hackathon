@@ -3,6 +3,8 @@ from elevenlabs import ElevenLabs
 from app.routes import bp
 import requests
 import time
+import json
+import os
 
 @bp.route('/convo/<conversation_id>', methods=['GET'])
 def get_conversation(conversation_id):
@@ -58,7 +60,7 @@ def get_conversation(conversation_id):
 @bp.route('/hardcoded_convo', methods=['GET'])
 def get_hardcoded_conversation():
     try:
-        conversation_id = "3IUumT0LhCArCwzU1QMu"
+        conversation_id = "zEKucYo1rvhQClAVcDKx"
         client = ElevenLabs(
             api_key=current_app.config['ELEVENLABS_API_KEY']
         )
@@ -66,8 +68,21 @@ def get_hardcoded_conversation():
             conversation_id=conversation_id
         )
         
-        # Return just the transcript from the response
-        return jsonify(response.dict()['transcript'])
+        # Get the transcript
+        transcript = response.dict()['transcript']
+        
+        # Get the base directory (where app folder is located)
+        base_dir = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
+        
+        # Create the full path to transcript.json in the data folder
+        transcript_path = os.path.join(base_dir, 'data', 'transcript.json')
+        
+        # Save transcript to JSON file
+        with open(transcript_path, 'w') as f:
+            json.dump(transcript, f, indent=2)
+        
+        # Return the transcript in the response
+        return jsonify(transcript)
     except Exception as e:
         return jsonify({
             "message": "Failed to fetch conversation or post to webhook",
