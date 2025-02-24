@@ -1,6 +1,6 @@
 # Espresso Labs
 
-An integrated voice agent who uses work collaboration tools to help engineering managers assemble and maintain a list of their obligations. 
+An integrated voice agent who uses work collaboration tools to help engineering managers assemble and maintain a list of their obligations. We won 2nd place at the a16z x ElevenLabs hackathon in London from 22-23 Feb 2025, and won a high-end Teenage Engineering OB-4 portable speaker each.
 
 ## Demo
 
